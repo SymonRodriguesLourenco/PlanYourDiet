@@ -33,4 +33,5 @@ export class HomeComponent implements OnInit {
       .pipe(first())
       .subscribe(users => this.users = users);
   }
+
 }

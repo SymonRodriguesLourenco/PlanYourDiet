@@ -1,0 +1,41 @@
+
+<mat-grid-list cols="4" rowHeight="5vh" gutterSize="20px">
+    <mat-grid-tile
+    [colspan]="4"
+    [rowspan]="4"
+    class="personalInfoTile"
+    >
+    <mat-card class='matCard'>
+    <mat-card-content class='matCardContent'>
+        <div class='matCardImage'>
+        <img mat-card-lg-image src="https://www.jumpstarttech.com/files/2018/08/Network-Profile.png">
+        </div>
+        <div class='matCardText'>
+            <ul class="informationList">
+                <li><h4>Name : {{currentUser.firstName}} {{currentUser.lastName}}</h4></li>
+                <li><h4>Birthday : {{currentUser.birthday}}</h4></li>
+                <li><h4>Email : {{currentUser.email}}</h4></li>
+                <li><h4>Current weight : {{currentUser.currentWeight}}</h4></li>
+                <li><h4>Goal weight : {{currentUser.goalWeight}}</h4></li>
+            </ul>
+        </div>
+    </mat-card-content>
+    </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile
+    [colspan]="2"
+    [rowspan]="7"
+    style="background: red;">
+    <mat-card style="height: 100%; width: 100%;">
+
+    </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile
+    [colspan]="2"
+    [rowspan]="7"
+    style="background: red;">
+    <mat-card style="height: 100%; width: 100%;">
+
+    </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
-
+import {CurrentUser} from '../_models/currentUser';
 // array in local storage for registered users
 let users = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -26,6 +26,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return register();
         case url.endsWith('/users') && method === 'GET':
           return getUsers();
+        case url.endsWith('/currentUser') && method === 'GET':
+          return getCurrentUserInfo();
         case url.match(/\/users\/\d+$/) && method === 'DELETE':
           return deleteUser();
         default:
@@ -47,6 +49,20 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         lastName: user.lastName,
         token: 'fake-jwt-token'
       })
+    }
+
+    function getCurrentUserInfo() {
+      var currentUserInfo : CurrentUser;
+
+      currentUserInfo = {firstName: 'symon',
+      lastName: 'rodrigues',
+      birthday: '17/08/1997',
+      currentWeight: '74',
+      goalWeight: '71',
+      email: 'symon_i@hotmail.com',
+      token: 'fake-jwt-token'};
+      var body = currentUserInfo;
+      return ok(body);
     }
 
     function register() {

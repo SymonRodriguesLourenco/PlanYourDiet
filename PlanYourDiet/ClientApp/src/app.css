@@ -5,6 +5,15 @@ a {
   color: #0366d6;
 }
 
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
 code {
   color: #e01a76;
 }
@@ -14,3 +23,19 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.jumbotronstyle {
+  margin: 0;
+  padding: 0;
+}
+
+.containerstyle {
+  min-height: 91.5vh;
+  background: pink;
+}
+
+.personalPageStyle {
+  width: 100%;
+  padding: 20px;
+}
+

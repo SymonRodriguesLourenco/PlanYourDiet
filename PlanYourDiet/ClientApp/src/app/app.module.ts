@@ -18,10 +18,10 @@ import { RouterModule } from '@angular/router';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NavMenuComponent } from './navMenu/nav-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from 'material-module';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
-
+import {PersonalPageComponent } from './personalPage/personal-page.component';
+import {MaterialModule} from './material-module';
 
 @NgModule({
   imports: [
@@ -31,10 +31,10 @@ import { FormsModule } from '@angular/forms';
     appRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    MaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    MaterialModule
   ],
   declarations: [
     AppComponent,
@@ -42,7 +42,8 @@ import { FormsModule } from '@angular/forms';
     NavMenuComponent,
     LoginComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    PersonalPageComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

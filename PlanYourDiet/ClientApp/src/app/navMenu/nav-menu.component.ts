@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, ViewChild } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatIconRegistry, MatIconModule } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 import { AuthenticationService } from '../_services/authentication.service';
 import { User } from '../_models/user';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-nav-menu',
@@ -18,7 +19,7 @@ export class NavMenuComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   currentUser: User;
-  links = ['google.com', 'youtube.com', 'facebook.com'];
+  links = ['personal page', 'youtube.com', 'facebook.com'];
 
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
@@ -40,6 +41,13 @@ export class NavMenuComponent implements OnDestroy {
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
+  }
+
+  @ViewChild('sidenav', {static: true}) sidenav : MatSidenav;
+
+
+  close() {
+    this.sidenav.close();
   }
 
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
